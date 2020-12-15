@@ -303,7 +303,7 @@
             {
                 style.Dispose();
             }
-            styles = null;
+            styles = new List<AndroidJavaObject>();
             foreach(var data in dataTable)
             {
                 data.Dispose();

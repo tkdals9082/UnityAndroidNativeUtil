@@ -41,7 +41,7 @@
 
             NativeIntent intent = new NativeIntent("ACTION_VIEW");
 
-            AndroidJavaObject uriObject = GetUri(currentActivity, "com.samkim.unityandroidnativeutil.fileprovider", fileName);
+            AndroidJavaObject uriObject = GetUri(currentActivity, currentActivity.Call<string>("getPackageName") + ".fileprovider", fileName);
             
             //NativeIntentUtil.SetDataAndType(intentObject, uriObject, intentType);
             intent.SetData(uriObject);
@@ -63,7 +63,7 @@
 
             NativeIntent intent = new NativeIntent("ACTION_SEND");
 
-            AndroidJavaObject uriObject = GetUri(currentActivity, "com.ksm.example.fileprovider", fileName);
+            AndroidJavaObject uriObject = GetUri(currentActivity, currentActivity.Call<string>("getPackageName") + ".fileprovider", fileName);
 
             intent.PutExtraStream(uriObject);
             intent.SetType(intentType);

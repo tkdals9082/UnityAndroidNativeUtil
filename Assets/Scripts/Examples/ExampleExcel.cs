@@ -58,9 +58,25 @@
 
             SetHeader("&LLeft&RRight&CCenter");
 
+            CreateDir("SamKim");
+
             Save("/storage/emulated/0/SamKim/test.xls");
 
             NativeFileUtil.ViewFile("/storage/emulated/0/SamKim/test.xls");
+        }
+
+        // Create Directory
+        public static void CreateDir(string dirName)
+        {
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                string dirPath = "/storage/emulated/0/" + dirName;
+                System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(dirPath);
+                if (!di.Exists)
+                {
+                    di.Create();
+                }
+            }
         }
     }
 }
